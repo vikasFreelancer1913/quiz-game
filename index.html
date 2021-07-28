@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <title>Quiz - JARVIS fun activity</title>
+</head>
+<body>
+    <div class="preLoadingPage js-preLoader">
+        <h1>
+            <span>Aayiye hum aur aap khelte hai</span><br/>
+            KKC<br/>Kaahe Ka Crorepati?
+        </h1>
+    </div>
+    <div class="quizOuterWrapper js-quizOuterWrapper">
+        <div class="quizWrapper">
+            <button id="js-GK" class="queryBtn">GK</button>
+            <button id="js-MT" class="queryBtn">Mythology</button>
+            <button id="js-SP" class="queryBtn">Sports</button>
+            <button id="js-ENT" class="queryBtn">Entertainment</button>
+        </div>
+        
+        <div class="loadQuestionSection" id="js-qSection">
+            <p class="query"></p>
+            <div class="imgWrap js-imgWrap">
+                <img src="" id="js-queryImg" alt="query"/>
+            </div>
+            <button class="js-showAnswer">Answer</button>
+        </div>
+        
+        <div class="loadAnswer" id="js-aSection">
+            <p class="answer"></p>
+            <button class="js-clearAnswer">Clear</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
