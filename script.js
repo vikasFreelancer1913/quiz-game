@@ -197,7 +197,7 @@ $(window).on('load', () => {
 	setTimeout(() => {
 		$('.js-preLoader').hide();
 		$('.js-quizOuterWrapper').show();
-	}, 6000);
+	}, 5000);
 });
 
 $('.queryBtn').on('click', (event) => {
