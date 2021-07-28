@@ -230,7 +230,7 @@ $('.queryBtn').on('click', (event) => {
 		$('#js-GK').attr("disabled", true).removeClass('active').addClass('disabled');
 	}
 	if (MTIndex === 10) {
-		$('#js-ST').attr("disabled", true).removeClass('active').addClass('disabled');
+		$('#js-MT').attr("disabled", true).removeClass('active').addClass('disabled');
 	}
 	if (SPIndex === 10) {
 		$('#js-SP').attr("disabled", true).removeClass('active').addClass('disabled');
