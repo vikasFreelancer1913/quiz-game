@@ -28,7 +28,7 @@ const myQuest = {
 		},
 		{
 			"q": "Who built the Jama Masjid?",
-			"a": "Shah Jahan"
+			"a": "Ahmed Shah"
 		},
 		{
 			"q": "Guess the personality from the picture, she was the first Indian to win the Booker Prize?",
