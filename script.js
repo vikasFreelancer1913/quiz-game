@@ -196,9 +196,30 @@ let ENTIndex = 0;
 $(window).on('load', () => {
 	setTimeout(() => {
 		$('.js-preLoader').hide();
-		$('.js-quizOuterWrapper').show();
+		$('.js-curtain').show();
+		setTimeout(() => {
+			$('.js-quizOuterWrapper').show();
+		}, 2000);
 	}, 5000);
 });
+
+function countDownTimer() {
+	let timer2 = "00:31";
+	let interval = setInterval(function() {
+		let timer = timer2.split(':');
+		//by parsing integer, I avoid all extra string processing
+		let minutes = parseInt(timer[0], 10);
+		let seconds = parseInt(timer[1], 10);
+		--seconds;
+		minutes = (seconds < 0) ? --minutes : minutes;
+		if (seconds <= 0) clearInterval(interval);
+		
+		seconds = (seconds <= 0) ? '0' : seconds;
+		seconds = (seconds < 10) ? '0' + seconds : seconds;
+		$('.js-countdown').html(minutes + ':' + seconds);
+		timer2 = minutes + ':' + seconds;
+	}, 1000);
+}
 
 $('.queryBtn').on('click', (event) => {
 	event.stopPropagation();
@@ -206,7 +227,7 @@ $('.queryBtn').on('click', (event) => {
 	$(event.currentTarget).addClass('active');
 	
 	resetDivs();
-	
+
 	const qVar = $(event.currentTarget).attr('id').split('-')[1];
 	let randomIndex = 0;
 	switch(qVar) {

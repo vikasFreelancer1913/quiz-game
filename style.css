@@ -11,6 +11,14 @@ html, body {
 	justify-content: center;
 }
 
+.countDown {
+	position: absolute;
+    top: 18px;
+    color: #f0fd3b;
+    font-size: 50px;
+    right: 180px;
+}
+
 button {
 	padding: 15px 30px;
 	font-size: 18px;
@@ -93,4 +101,57 @@ button.active {
 	display: block;
 	font-size: 30px;
 	line-height: 36px;
+}
+
+/* animation */
+.curtain-left {
+	left: 0;
+    animation-name: go-left;
+}
+.curtain-right {
+	left: 50%;
+	animation-name: go-right;
+}
+.curtain {
+	width: 50%;
+    height: 95vh;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	display: none;
+	animation-delay: 0.5s;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+.curtain-element {
+    width: 10%;
+    height: 100%;
+    float: left;
+    border-bottom-right-radius: 67px;
+    border-bottom-left-radius: 67px;
+}
+.curtain-element:nth-child(odd) {
+    background-color: #ba0f0f;
+}
+.curtain-element:nth-child(even) {
+    background-color: #d72525;
+}
+@keyframes go-left {
+    0% {
+        transform: translate(0%, 0%);
+    }
+    100% {
+        transform: translate(-110%, 0%);
+    }
+}
+
+@keyframes go-right {
+    0% {
+		transform: translate(0%, 0%);
+    }
+    100% {
+		transform: translate(110%, 0%);
+    }
 }
