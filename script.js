@@ -230,36 +230,35 @@ $('.queryBtn').on('click', (event) => {
 
 	const qVar = $(event.currentTarget).attr('id').split('-')[1];
 	let randomIndex = 0;
+
+	$('#js-GK').attr("disabled", true).removeClass('active').addClass('disabled');
+	$('#js-MT').attr("disabled", true).removeClass('active').addClass('disabled');
+	$('#js-SP').attr("disabled", true).removeClass('active').addClass('disabled');
+	$('#js-ENT').attr("disabled", true).removeClass('active').addClass('disabled');
+	
 	switch(qVar) {
 		case 'GK' : randomIndex = GKIndex;
-								GKIndex++;
-								break;
+					GKIndex++;
+					$('#js-GK').attr("disabled", false).removeClass('disabled');
+					break;
 		case 'MT' : randomIndex = MTIndex;
-								MTIndex++;
-								break;
+					$('#js-MT').attr("disabled", false).removeClass('disabled');
+					MTIndex++;
+					break;
 		case 'SP' : randomIndex = SPIndex;
-								SPIndex++;
-								break;
+					$('#js-SP').attr("disabled", false).removeClass('disabled');
+					SPIndex++;
+					break;
 		case 'ENT': randomIndex = ENTIndex;
-								ENTIndex++;
-								break;
-		default: 		randomIndex = 0;
-								break;
-	}
-	
-	if (GKIndex === 10) {
-		$('#js-GK').attr("disabled", true).removeClass('active').addClass('disabled');
-	}
-	if (MTIndex === 10) {
-		$('#js-MT').attr("disabled", true).removeClass('active').addClass('disabled');
-	}
-	if (SPIndex === 10) {
-		$('#js-SP').attr("disabled", true).removeClass('active').addClass('disabled');
-	}
-	if (ENTIndex === 10) {
-		$('#js-ENT').attr("disabled", true).removeClass('active').addClass('disabled');
+					$('#js-ENT').attr("disabled", false).removeClass('disabled');
+					ENTIndex++;
+					break;
+		default: 	randomIndex = 0;
+					break;
 	}
 
+	disabledButtonsForQuest();
+	
 	$('#js-qSection').find('.query').html('Q: ' + myQuest[qVar][randomIndex].q);
 	if (myQuest[qVar][randomIndex]?.img) {
 		$("#js-qSection").find('#js-queryImg').attr('src', myQuest[qVar][randomIndex].img);
@@ -276,9 +275,29 @@ $('.queryBtn').on('click', (event) => {
 	
 	$('.js-clearAnswer').on('click', (event) => {
 		event.stopPropagation();
+		$('#js-GK').attr("disabled", false).removeClass('disabled');
+		$('#js-MT').attr("disabled", false).removeClass('disabled');
+		$('#js-SP').attr("disabled", false).removeClass('disabled');
+		$('#js-ENT').attr("disabled", false).removeClass('disabled');
+		disabledButtonsForQuest();
 		resetDivs();
 	});
 });
+
+function disabledButtonsForQuest() {
+	if (GKIndex === 10) {
+		$('#js-GK').attr("disabled", true).removeClass('active').addClass('disabled');
+	}
+	if (MTIndex === 10) {
+		$('#js-MT').attr("disabled", true).removeClass('active').addClass('disabled');
+	}
+	if (SPIndex === 10) {
+		$('#js-SP').attr("disabled", true).removeClass('active').addClass('disabled');
+	}
+	if (ENTIndex === 10) {
+		$('#js-ENT').attr("disabled", true).removeClass('active').addClass('disabled');
+	}
+}
 
 function resetDivs() {
 	$('.js-showAnswer').show();
